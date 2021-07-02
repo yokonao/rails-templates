@@ -1,9 +1,9 @@
 %w[bundler rubocop].each do |gem|
-  next if Gem::Specification.find_by_name(gem)
-
-  run "gem install #{gem}"
-  Gem.refresh
-  Gem.activate(component)
+  Gem::Specification.find_by_name(gem)
+rescue Gem::MissingSpecError
+  puts "#{gem} is missing!"
+  puts %(Please run "gem install #{gem}"")
+  exit 1
 end
 
 run_bundle
