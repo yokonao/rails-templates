@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# rails new booking-sample -d postgresql --webpack=react -m rails-templates/evans.rb
-# rails new booking-sample -d postgresql --skip-keeps --skip-action-mailer --skip-action-mailbox --skip-action-text --skip-action-cable --skip-sprockets --skip-turbolinks --webpacker=react
-
 def source_paths
   [__dir__]
 end
