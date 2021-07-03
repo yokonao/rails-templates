@@ -30,9 +30,11 @@ after_bundle do
       end
     end
   end
+  run('yarn add axios @types/axios')
   run('mv app/javascript/packs/hello_react.jsx app/javascript/packs/hello_react.tsx')
 
   generate(:scaffold, 'booking name:text start:datetime end:datetime')
+  generate(:controller, 'api/v1/bookings')
   rails_command('db:migrate')
   git :init
   git add: '.'
