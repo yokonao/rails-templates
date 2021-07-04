@@ -1,0 +1,19 @@
+name: booking-sample
+root: <%= @root_dir %>
+
+on_project_start: code .
+
+on_project_exit: docker compose down
+
+windows:
+  - main:
+      synchronize: after
+      panes:
+        - terminal:
+          - sleep 10
+          - bin/rails db:migrate RAILS_ENV=development
+          - git status
+  - frontend: bin/webpack-dev-server
+  - backend: bin/rails s
+  - database: docker compose up
+  - logs: tail -f log/development.log

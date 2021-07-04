@@ -19,6 +19,10 @@ template 'config/database.yml', force: true
 run('mkdir tmp/pgdata')
 run('docker compose up -d')
 
+# tmuxinatorの設定ファイルを準備する
+@root_dir = Dir.pwd
+template '.tmuxinator.yml'
+
 after_bundle do
   # https://github.com/rails/rails/issues/21700
   run 'spring stop'
