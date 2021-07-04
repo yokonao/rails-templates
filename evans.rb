@@ -46,9 +46,8 @@ after_bundle do
   generate(:controller, 'api/v1/bookings')
   generate(:controller, 'react --no-helper')
   template 'app/views/react/show.html.erb'  # Reactコンポーネントを表示できるようにする
-  inject_into_file 'config/routes.rb', before: 'end' do
-    "\n  get '/*react_path', to: 'react#show'\n"
-  end
+  route "get '/*react_path', to: 'react#show'"
+
   rails_command('db:migrate')
   git :init
   git add: '.'
