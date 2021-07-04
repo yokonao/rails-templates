@@ -1,0 +1,13 @@
+import * as React from "react";
+import client from "./client";
+
+const Booking = (props: { name: string }) => {
+  client
+    .get("/api/v1/bookings/index")
+    .then((res) => console.log(res.data))
+    .catch((e) => console.log(e));
+
+  return <div>Booking is {props.name}</div>;
+};
+
+export default Booking;
