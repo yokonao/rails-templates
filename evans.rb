@@ -58,6 +58,6 @@ after_bundle do
 
   rails_command('db:migrate')
   git :init
-  git  add: '.'
+  git add: '.'
   git commit: %( -m 'Initial commit' )
 end
