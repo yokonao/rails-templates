@@ -48,14 +48,16 @@ after_bundle do
   # Axios
   run('yarn add axios @types/axios')
 
+  # Reactコンポーネントを表示できるようにする
+  generate(:controller, 'react --no-helper')
+  template 'app/views/react/show.html.erb'
+  route "get '/*react_path', to: 'react#show'"
+  # モデルの生成
   generate(:scaffold, 'booking name:text start:datetime end:datetime')
   generate(:controller, 'api/v1/bookings')
-  generate(:controller, 'react --no-helper')
-  template 'app/views/react/show.html.erb'  # Reactコンポーネントを表示できるようにする
-  route "get '/*react_path', to: 'react#show'"
 
   rails_command('db:migrate')
   git :init
-  git add: '.'
+  git  add: '.'
   git commit: %( -m 'Initial commit' )
 end
