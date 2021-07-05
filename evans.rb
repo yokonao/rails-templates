@@ -13,6 +13,12 @@ rescue Gem::MissingSpecError
   exit 1
 end
 
+application do
+  <<-EOF
+  config.time_zone = 'Tokyo'
+  EOF
+end
+
 # DBをpostgresqlに変更する
 template 'docker-compose-postgresql.yml.tt', 'docker-compose.yml'
 template 'config/database.yml', force: true
