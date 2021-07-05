@@ -14,9 +14,9 @@ rescue Gem::MissingSpecError
 end
 
 application do
-  <<-EOF
+  <<-CONFIG
   config.time_zone = 'Tokyo'
-  EOF
+  CONFIG
 end
 
 # DBをpostgresqlに変更する
