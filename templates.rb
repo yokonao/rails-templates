@@ -75,7 +75,7 @@ after_bundle do
 
   # RSpecの下準備
   rails_command('generate rspec:install')
-  template 'spec/rails_helper.rb' # RSpec設定の上書き、factory_bot_railsの設定が書かれている
+  template 'spec/rails_helper.rb', force: true # RSpec設定の上書き、factory_bot_railsの設定が書かれている
 
   rails_command('db:create')
   rails_command('db:migrate')
