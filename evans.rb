@@ -16,15 +16,22 @@ end
 application do
   <<-CONFIG
   config.time_zone = 'Tokyo'
+  config.i18n.default_locale = :ja
+  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
   CONFIG
 end
 
 # Gemの追加
+gem 'rails-i18n' # 日本語化に必須
+
 gem_group :development, :test do
   gem 'factory_bot_rails' # specの中でモデルのインスタンスを生成するのに必要
   gem 'rexml' # rspecを動かすのに必要
   gem 'rspec-rails'
 end
+
+# 日本語化の設定ファイルを追加(要編集！)
+template 'config/locales/models/ja.yml'
 
 # DBをpostgresqlに変更する
 template 'docker-compose-postgresql.yml.tt', 'docker-compose.yml'
