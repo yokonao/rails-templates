@@ -1,4 +1,4 @@
-name: booking-sample
+name: <%= ENV.fetch("APP_NAME") %>
 root: <%= @root_dir %>
 
 on_project_start: code .
