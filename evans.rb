@@ -60,8 +60,8 @@ after_bundle do
   template 'app/views/react/show.html.erb'
   route "get '/*react_path', to: 'react#show'"
   # モデルの生成
-  generate(:scaffold, 'booking name:text start:datetime end:datetime')
-  generate(:controller, 'api/v1/bookings')
+  generate(:scaffold, 'appointment name:text start_at:datetime end_at:datetime')
+  generate(:controller, 'api/v1/appointments')
 
   # RSpecの下準備
   rails_command('generate rspec:install')
