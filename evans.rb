@@ -61,6 +61,7 @@ after_bundle do
   generate(:scaffold, 'booking name:text start:datetime end:datetime')
   generate(:controller, 'api/v1/bookings')
 
+  rails_command('db:create')
   rails_command('db:migrate')
   git :init
   git add: '.'

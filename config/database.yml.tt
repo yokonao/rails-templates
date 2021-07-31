@@ -7,13 +7,15 @@ development:
   <<: *default
   username: postgresql
   password: postgresql
-  database: postgresql_development
+  database: <%= ENV.fetch("APP_NAME") %>_development
   host: 127.0.0.1
 
 test:
-  # TODO configure
   <<: *default
-  database: rails_template_test
+  username: postgresql
+  password: postgresql
+  database: <%= ENV.fetch("APP_NAME") %>_test
+  host: 127.0.0.1
 
 production:
   # TODO configure
