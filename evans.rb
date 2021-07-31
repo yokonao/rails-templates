@@ -21,7 +21,8 @@ end
 
 # Gemの追加
 gem_group :development, :test do
-  gem 'rexml'
+  gem 'factory_bot_rails' # specの中でモデルのインスタンスを生成するのに必要
+  gem 'rexml' # rspecを動かすのに必要
   gem 'rspec-rails'
 end
 
