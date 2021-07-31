@@ -21,7 +21,8 @@ end
 
 # Gemの追加
 gem_group :development, :test do
-  gem "rspec-rails"
+  gem 'rexml'
+  gem 'rspec-rails'
 end
 
 # DBをpostgresqlに変更する
@@ -60,6 +61,9 @@ after_bundle do
   # モデルの生成
   generate(:scaffold, 'booking name:text start:datetime end:datetime')
   generate(:controller, 'api/v1/bookings')
+
+  # RSpecの下準備
+  rails_command('generate rspec:install')
 
   rails_command('db:create')
   rails_command('db:migrate')
