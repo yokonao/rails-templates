@@ -19,6 +19,11 @@ application do
   CONFIG
 end
 
+# Gemの追加
+gem_group :development, :test do
+  gem "rspec-rails"
+end
+
 # DBをpostgresqlに変更する
 template 'docker-compose-postgresql.yml.tt', 'docker-compose.yml'
 template 'config/database.yml', force: true
