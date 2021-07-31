@@ -36,6 +36,9 @@ run('docker compose up -d')
 @root_dir = Dir.pwd
 template '.tmuxinator.yml'
 
+# asdfの設定ファイルをコピー
+template '.tool-versions'
+
 after_bundle do
   # https://github.com/rails/rails/issues/21700
   run 'spring stop'
@@ -65,6 +68,7 @@ after_bundle do
 
   # RSpecの下準備
   rails_command('generate rspec:install')
+  template 'spec/rails_helper.rb' # RSpec設定の上書き、factory_bot_railsの設定が書かれている
 
   rails_command('db:create')
   rails_command('db:migrate')
