@@ -18,6 +18,7 @@ application do
   config.time_zone = 'Tokyo'
   config.i18n.default_locale = :ja
   config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+  config.autoload_paths += %W(#{config.root}/lib #{config.root}/validators #{config.root}/services)
   CONFIG
 end
 
