@@ -66,6 +66,9 @@ after_bundle do
   # Axios
   run('yarn add axios @types/axios')
 
+  # MaterialUI
+  # run('yarn add @material-ui/core')
+
   # Reactコンポーネントを表示できるようにする
   generate(:controller, 'react --no-helper')
   template 'app/views/react/show.html.erb'
